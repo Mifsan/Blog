@@ -1,0 +1,51 @@
+﻿@model Post
+
+@{
+
+}
+<link href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css" rel="stylesheet" />
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Edit post</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="form-group">
+                    <form asp-controller="Panel" asp-action="Edit" method="post">
+                        <input asp-for="Id" type="hidden" />
+                        <div>
+                            <label>Title</label>
+                            <input class="form-control" asp-for="Title" />
+                        </div>
+                        <hr />
+                        <div>
+                            <label>Body</label>
+                            <textarea class="form-control" id="editor" asp-for="Body"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+@section scripts {
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="~/lib/Trumbowyg-master/dist/trumbowyg.min.js"></script>
+    <script>
+        $('#editor').trumbowyg();
+    </script>
+}
